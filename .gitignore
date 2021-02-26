@@ -1,13 +1,57 @@
-typings
-**/app/**/*.js
-**/app/**/*.map
-node_modules
-jspm_packages
-bower_components
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-.vs
-**/*.sou
-**/*.user
-bin
-obj
-packages
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/~Mutex
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/WebSymbols
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/TagPrefixes
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/RecorderDeclaredElements
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/JSTest
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/FileDependencies
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/ExternalFiles
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/Db
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/BuildScriptCache
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00/AssemblyResolutionCache11.dat
+/_ReSharper.Caches/ReSharperPlatformVs16193_0db5d449.00

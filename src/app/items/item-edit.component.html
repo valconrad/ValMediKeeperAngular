@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+    <div class="card-body">
+      <form novalidate
+            (ngSubmit)="saveItem()"
+            [formGroup]="itemForm">
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                 for="itemNameId">Item Name</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   id="itemNameId"
+                   type="text"
+                   placeholder="Name (required)"
+                   formControlName="name"
+                   [ngClass]="{'is-invalid': displayMessage.name }" />
+            <span class="invalid-feedback">
+              {{displayMessage.name}}
+            </span>
+          </div>
+        </div>        
+        <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label"
+                   for="itemCostId">Item Cost ($)</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="itemCostId"
+                     type="number"
+                     min="0.01"
+                     placeholder="Cost (required)"
+                     formControlName="cost"
+                     [ngClass]="{'is-invalid': displayMessage.cost }" />
+              <span class="invalid-feedback">
+                {{ displayMessage.cost }}
+              </span>
+            </div>
+        </div>
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button class="btn btn-primary mr-3"
+                    style="width:80px;"
+                    type="submit"
+                    [title]="itemForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                    [disabled]="!itemForm.valid">
+              Save
+            </button>
+            <button class="btn btn-outline-secondary mr-3"
+                    style="width:80px;"
+                    type="button"
+                    title="Cancel your edits"
+                    [routerLink]="['/items']">
+              Cancel
+            </button>
+            <button class="btn btn-outline-warning"
+                    style="width:80px"
+                    type="button"
+                    title="Delete this item"
+                    (click)="deleteItem()">
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>  
+    <div class="alert alert-danger"
+         *ngIf="errorMessage">{{errorMessage}}
+    </div>
+  </div>

@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header"
+         *ngIf="item">
+      {{pageTitle + ": " + item.name}}
+    </div>  
+    <div class="card-body"
+         *ngIf="item">  
+      <div class="row">  
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-3">Item Name:</div>
+            <div class="col-md-6">{{item.name}}</div>
+          </div>  
+          <div class="row">
+            <div class="col-md-3">Cost:</div>
+            <div class="col-md-6">{{item.cost|currency:"USD":"symbol"}}</div>
+          </div>
+        </div>
+      </div>  
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <button class="btn btn-outline-secondary mr-3"
+                  style="width:80px"
+                  (click)="onBack()">
+            <i class="fa fa-chevron-left"></i> Back
+          </button>
+          <button class="btn btn-outline-primary"
+                  style="width:80px"
+                  [routerLink]="['/items', item.id, 'edit']">
+            Edit
+          </button>
+        </div>
+      </div>  
+    </div>  
+    <div class="alert alert-danger"
+         *ngIf="errorMessage">{{errorMessage}}
+    </div>
+  </div>

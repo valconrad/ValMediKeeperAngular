@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+  <div class="card-body">
+    <div>      
+      <label for="maxPriceOnly"> 
+      <input type="checkbox" id="maxPriceOnly" (click)="refreshItems()" class="check-space">  Only show max price of Item
+    </label>
+    </div>
+    <div class="table-responsive">
+      <table class="table mb-0"
+             *ngIf="items && items.length">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Item Cost</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+
+            <td>
+              <a [routerLink]="['/items', item.id]">
+                {{ item.name }}
+              </a>
+            </td>
+
+            <td>{{ item.cost | currency:"USD":"symbol":"1.2-2" }}</td>
+
+            <td>
+              <button class="btn btn-outline-primary btn-sm"
+                      [routerLink]="['/items', item.id, 'edit']">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
